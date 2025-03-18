@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Esta página de contenido define la interfaz de usuario principal para un juego de tres en raya. -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+    <!-- Define la clase MainPage para la lógica del backend. -->
+
+    <ScrollView Orientation="Both">
+        <!-- Habilita el desplazamiento tanto vertical como horizontal para adaptarse a diferentes tamaños de pantalla. -->
+        <Grid Padding="20">
+            <!-- El padding de 20 crea espacio alrededor de todos los elementos dentro del Grid principal. -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- La altura automática permite que el Grid se ajuste al tamaño de su contenido. -->
+            </Grid.RowDefinitions>
+
+            <!-- Contenedor principal para la información del juego y el tablero. -->
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!-- Fila para la información del juego, ajusta su altura automáticamente. -->
+                    <RowDefinition Height="*" />
+                    <!-- Fila para el tablero de juego, ocupa el espacio vertical restante. -->
+                </Grid.RowDefinitions>
+
+                <!-- Grid para mostrar la información de turnos y el conteo de victorias. -->
+                <Grid Grid.Row="0" WidthRequest="400" HeightRequest="50" BackgroundColor="LightGray"
+                      ColumnSpacing="5" Margin="0,0,0,10">
+                    <!-- Define el tamaño y el estilo del Grid de información del juego. -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Etiquetas para mostrar el turno actual y las victorias de cada jugador. -->
+                    <Label x:Name="turnoLabel" Grid.Column="0" Text="Turno: O" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="victoriasXLabel" Grid.Column="1" Text="Victorias X: 0" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label x:Name="victoriasOLabel" Grid.Column="2" Text="Victorias O: 0" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Grid>
+
+                <!-- Tablero de juego configurado con un Grid para posicionar los botones de las casillas. -->
+                <Grid x:Name="tablero" Grid.Row="1" WidthRequest="400" HeightRequest="400" MinimumHeightRequest="400" BackgroundColor="Gold"
+                      RowSpacing="5" ColumnSpacing="5" Padding="5">
+                    <!-- Define el espacio entre las casillas y el padding interno. -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Botones que actúan como casillas del juego. Cada uno tiene un evento Clicked que maneja las jugadas. -->
+                    <Button x:Name="Casilla_00" Grid.Row="0" Grid.Column="0" BackgroundColor="Mediumpurple" WidthRequest="120" HeightRequest="120" Clicked="Casilla_Clicked"/>
+                    <Button x:Name="Casilla_01" Grid.Row="0" Grid.Column="1" BackgroundColor="Mediumpurple" WidthRequest="120" HeightRequest="120" Clicked="Casilla_Clicked"/>
+                    <Button x:Name="Casilla_02" Grid.Row="0" Grid.Column="2" BackgroundColor="Mediumpurple" WidthRequest="120" HeightRequest="120" Clicked="Casilla_Clicked"/>
+                    <Button x:Name="Casilla_10" Grid.Row="1" Grid.Column="0" BackgroundColor="Mediumpurple" WidthRequest="120" HeightRequest="120" Clicked="Casilla_Clicked"/>
+                    <Button x:Name="Casilla_11" Grid.Row="1" Grid.Column="1" BackgroundColor="Mediumpurple" WidthRequest="120" HeightRequest="120" Clicked="Casilla_Clicked"/>
+                    <Button x:Name="Casilla_12" Grid.Row="1" Grid.Column="2" BackgroundColor="Mediumpurple" WidthRequest="120" HeightRequest="120" Clicked="Casilla_Clicked"/>
+                    <Button x:Name="Casilla_20" Grid.Row="2" Grid.Column="0" BackgroundColor="Mediumpurple" WidthRequest="120" HeightRequest="120" Clicked="Casilla_Clicked"/>
+                    <Button x:Name="Casilla_21" Grid.Row="2" Grid.Column="1" BackgroundColor="Mediumpurple" WidthRequest="120" HeightRequest="120" Clicked="Casilla_Clicked"/>
+                    <Button x:Name="Casilla_22" Grid.Row="2" Grid.Column="2" BackgroundColor="Mediumpurple" WidthRequest="120" HeightRequest="120" Clicked="Casilla_Clicked"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>
